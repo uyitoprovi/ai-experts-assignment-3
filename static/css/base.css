@@ -1,0 +1,95 @@
+/* Base Styles */
+:root {
+    --primary-orange: #ff6600;
+    --primary-black: #000;
+    --primary-white: #fff;
+    --light-gray: #f8f9fa;
+    --border-gray: #dee2e6;
+}
+
+body {
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    padding-top: 70px; 
+}
+
+/* Custom Bootstrap Navbar Overrides */
+.navbar-dark .navbar-brand {
+    color: var(--primary-orange) !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: var(--primary-white) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--primary-white) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: var(--primary-orange) !important;
+}
+
+/* Search Button Custom Styling */
+.btn-outline-success {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+    background-color: transparent;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
+    color: var(--primary-white);
+}
+
+/* Search Input */
+.form-control:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
+}
+
+/* Container Spacing */
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.25rem 0;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+    
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

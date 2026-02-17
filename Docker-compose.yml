@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    command: python /django_professional/manage.py runserver 0.0.0.0:8000
+    #command: gunicorn django_project.wsgi:application --bind 0.0.0.0:8000
+
+    volumes:
+      - .:/django_professional
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+    environment:
+      - "DJANGO_SECRET_KEY=django-insecure-z$$ahx&6=kkw5egsrbfm2@s=g_5h_=f&1x-+!7gg6dcgv$$!5col"
+      - "DJANGO_DEBUG=True"
+      - "DJANGO_SECURE_SSL_REDIRECT=False" # new
+      -  "DJANGO_SECURE_HSTS_SECONDS=0" # new
+      - "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False" # new
+      - "DJANGO_SECURE_HSTS_PRELOAD=False" # new
+      - "DJANGO_SESSION_COOKIE_SECURE=False" # new
+      - "DJANGO_CSRF_COOKIE_SECURE=False" # new
+
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+volumes:
+  postgres_data:

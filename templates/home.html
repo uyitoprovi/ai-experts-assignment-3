@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<div class="home-content">
+    <h1>This is our home page.</h1>
+    <img class="bookcover" src="{% static 'images/python.jpg' %}" alt="Python Book Cover">
+    
+    <div class="cta-section">
+        <h2>Welcome to Our Bookstore!</h2>
+        <p>Discover amazing books and great deals</p>
+        <a href="{% url 'book_list' %}" class="cta-button">Browse Books</a>
+    </div>
+    
+    <div class="featured-section">
+        <h2>Featured This Month</h2>
+        <p>Check out our latest collection of programming and technical books.</p>
+    </div>
+</div>
+{% endblock content %}
