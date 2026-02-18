@@ -18,7 +18,7 @@ ENV DJANGO_SESSION_COOKIE_SECURE=False
 ENV DJANGO_CSRF_COOKIE_SECURE=False
 ENV DJANGO_STATICFILES_STORAGE=django.contrib.staticfiles.storage.StaticFilesStorage
 # Set work directory
-WORKDIR /django_professional
+WORKDIR /app
 
 # Copy requirements file
 COPY ./requirements.txt .

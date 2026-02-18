@@ -4,13 +4,15 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 
 
-# Create your models here.
 class Book(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=250)
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     cover = models.ImageField(upload_to="covers/", blank=True)
+
+    class Meta:
+        app_label = "books"
 
     def __str__(self):
         return self.title
@@ -32,10 +34,10 @@ class Reviews(models.Model):
     )
 
     class Meta:
+        app_label = "books"
         indexes = [
             models.Index(fields=["id"], name="id_index"),
         ]
-
         permissions = [
             ("special_status", "Can read all books"),
         ]
